@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+
+    <MarkdownEditor />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MarkdownEditor from "@/components/MarkdownEditor";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    MarkdownEditor
+  },
+
+  computed: {
+    title() {
+      return location.pathname;
+    }
   }
 }
 </script>
 
 <style>
-#app {
+html, body {
+  margin: 0;
+  padding: 0;
+
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
